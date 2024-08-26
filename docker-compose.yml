@@ -1,0 +1,41 @@
+services:
+  airflow:
+    image: python:3.12
+    volumes:
+      - /home/ec2-user/airflow/app:/app
+      - ./root/airflow:/root/airflow
+    ports:
+      - "8080:8080"
+      - "2222:22"
+    command: >
+      sh -c ". /app/config.sh && sleep infinity"
+    networks:
+      - common-network
+
+  backend_server:
+    image: python:3.12
+    volumes:
+      - /home/ec2-user/airflow/app:/app
+      - /home/ec2-user/airflow/backend_server:/backend_server
+      - /home/ec2-user/airflow/root/airflow:/root/airflow
+    ports:
+      - "5555:5555"
+    command: >
+      sh -c "pip install openai && pip install flask && pip install flask_cors && python /backend_server/apis.py && sleep infinity"
+    networks:
+      - common-network
+
+  frontend:
+    image: php:7.4-apache
+    volumes:
+      - /home/ec2-user/airflow/frontend:/var/www/html/
+    ports:
+      - "80:80"
+    command: >
+      sh -c "service apache2 start && sleep infinity"
+    networks:
+      - common-network
+
+networks:
+  common-network:
+    driver: bridge
