@@ -36,6 +36,21 @@ services:
     networks:
       - common-network
 
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: hany
+      MYSQL_DATABASE: hany
+      MYSQL_USER: hany
+      MYSQL_PASSWORD: hany
+    volumes:
+      - /home/ec2-user/airflow/mysql_data:/var/lib/mysql
+    ports:
+      - "33061:3306"
+    networks:
+      - common-network
+
 networks:
   common-network:
     driver: bridge
+

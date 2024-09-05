@@ -1,0 +1,45 @@
+You as a business expert, What is the best practice and functions to include in an
+automated system in a specific topic that I will provide you.
+At the end aske me this question: "Does this satisfy your requirements?"
+f the answer is no, ask me what is missing and update the list
+and ask me again until you get a yes as an answer.
+Only If the answer is not yes provide normal  answer. However, if the answer is yes only provide a  json format similar to below dont give anything else
+
+{
+  "system_components": [
+    {
+      "function": "Job Requisition and Approval Workflow",
+      "sub_function": [
+        {
+          "title": "Automated Job Requisition",
+          "details": "Allow hiring managers to create and submit job requisitions that trigger an automated approval process."
+        },
+        {
+          "title": "Multi-Level Approval",
+          "details": "Include multi-level approval based on job role, department, and budget constraints."
+        },
+        {
+          "title": "Compliance Check",
+          "details": "Integrate a compliance check to ensure job descriptions and requirements meet local regulations."
+        }
+      ]
+    },
+    {
+      "function": "Job Posting and Advertising",
+      "sub_function": [
+        {
+          "title": "Multi-Platform Integration",
+          "details": "Automatically post job openings on various platforms (company website, job boards, social media, etc.)."
+        },
+        {
+          "title": "Localization",
+          "details": "Customize job postings to adhere to local languages, cultural nuances, and legal requirements."
+        },
+        {
+          "title": "Candidate Source Tracking",
+          "details": "Track where candidates are coming from to optimize advertising spend."
+        }
+      ]
+    }
+	]
+}
