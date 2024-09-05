@@ -12,7 +12,7 @@ class DBActions():
         self.database = "db"
         self.create_connection()
         self.client = OpenAI(
-            api_key="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",
+            api_key="",
             # this is also the default, it can be omitted
         )
 
