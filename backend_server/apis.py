@@ -7,7 +7,7 @@ from openai import OpenAI
 class DagCreate():
     def __init__(self):
         self.client = OpenAI(
-          api_key="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",  # this is also the default, it can be omitted
+          api_key="",  # this is also the default, it can be omitted
         )
 
     def get_python_code(self, prompt):
